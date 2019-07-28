@@ -9,15 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".addRide"></activity>
-        <activity android:name=".RideDetails">
+        <activity android:name=".Signup_Activity"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+
+
+        </activity>
+        <activity android:name=".Signin_Activity"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+
+
+        <activity android:name=".addRide" />
+        <activity android:name=".RideDetails">
+
+        </activity>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>
