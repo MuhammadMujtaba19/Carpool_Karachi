@@ -1,6 +1,6 @@
 package com.example.carpoolkarachi;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class addRide extends AppCompatActivity {

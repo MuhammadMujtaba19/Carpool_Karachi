@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1060408851409",
+    "firebase_url": "https://carpoolkarachi-a78bb.firebaseio.com",
+    "project_id": "carpoolkarachi-a78bb",
+    "storage_bucket": "carpoolkarachi-a78bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060408851409:android:1dc54fcf6567a5ad",
+        "android_client_info": {
+          "package_name": "com.example.carpoolkarachi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060408851409-f90af2rnnj1aajeeud6s0mutp6kdgrkt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZgQfvsvXJb_LXCqWXtHKJD9qYrOE09qA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060408851409-f90af2rnnj1aajeeud6s0mutp6kdgrkt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
