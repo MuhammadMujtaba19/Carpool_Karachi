@@ -7,12 +7,15 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,69 +26,80 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Signup_Activity extends AppCompatActivity {
+public class Signup_Activity extends AppCompatActivity implements  View.OnClickListener{
     private FirebaseAuth mAuth;
-    private com.google.android.material.textfield.TextInputEditText username;
-    private com.google.android.material.textfield.TextInputEditText email;
-    private com.google.android.material.textfield.TextInputEditText password;
-    private com.google.android.material.textfield.TextInputEditText phone;
+    private com.google.android.material.textfield.TextInputEditText usernameEdittext;
+    private com.google.android.material.textfield.TextInputEditText emailEdittext;
+    private com.google.android.material.textfield.TextInputEditText passwordEdittext;
+    private com.google.android.material.textfield.TextInputEditText phoneEdittext;
     private RadioGroup sexRadio;
     private RadioButton sexButton;
+    private String username;
+    private String email;
+    private String phone;
+    private String password;
+    private String sex;
     private ProgressDialog progressDialog;
     private FirebaseUser user;
+    private Button register;
+    private TextView signIn;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        mAuth = FirebaseAuth.getInstance();
-        progressDialog = new ProgressDialog(this);
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        registerUser();
+        mAuth = FirebaseAuth.getInstance();
+        progressDialog = new ProgressDialog(this);
+
+        register = findViewById(R.id.register);
+        register.setOnClickListener(this);
+
+        signIn = findViewById(R.id.signIn);
+        signIn.setOnClickListener(this);
+//        registerUser();
     }
 
 //    @Override
 //    public void onStart() {
 //        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
+//        // Check if user is signed in (non-null) then go to signin page.
 //        FirebaseUser currentUser = mAuth.getCurrentUser();
-////        updateUI
-////        startActivity(new Intent(Signup_Activity.this, Signin_Activity.class));
-//
+//        if(currentUser != null) {
+//            startActivity(new Intent(Signup_Activity.this, Signin_Activity.class));
+//        }
 //    }
 
-    //    public void registerUser(){
-//
-//    }
-//
-    public void registerUser() {
-        Button register = (Button) findViewById(R.id.register);
-        username = findViewById(R.id.username);
-        email = findViewById(R.id.useremail);
-        password = findViewById(R.id.userpassword);
-        phone = findViewById(R.id.userphone);
+    public boolean getInfo(){
+        usernameEdittext = findViewById(R.id.username);
+        emailEdittext = findViewById(R.id.useremail);
+        passwordEdittext = findViewById(R.id.userpassword);
+        phoneEdittext = findViewById(R.id.userphone);
         sexRadio = findViewById(R.id.gender);
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                String gen = (gender.getCheckedRadioButtonId());
+        username = usernameEdittext.getText().toString().trim();
+        email = emailEdittext.getText().toString().trim();
+        password = passwordEdittext.getText().toString().trim();
+        phone = phoneEdittext.getText().toString().trim();
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(Signup_Activity.this, "Please enter email.",
+                    Toast.LENGTH_SHORT).show();
+            return  false;
+        } else if (TextUtils.isEmpty(password)) {
+            Toast.makeText(Signup_Activity.this, "Please enter password.",
+                    Toast.LENGTH_SHORT).show();
+            return  false;
+        } else if (TextUtils.isEmpty(phone)) {
+            Toast.makeText(Signup_Activity.this, "Please enter phone.",
+                    Toast.LENGTH_SHORT).show();
+            return  false;
+        }
+        return true;
 
-                Log.i("Username", username.getText().toString());
-                Log.i("Username", email.getText().toString());
-                Log.i("Username", phone.getText().toString());
-                Log.i("Username", password.getText().toString());
-//                Log.i("Username", String.valueOf(gender.getCheckedRadioButtonId()));
-//                System.out.println((gender.getCheckedRadioButtonId()));
-                createUser();
-//                int genderId = sexRadio.getCheckedRadioButtonId();
-//                sexButton = findViewById(genderId);
-//                Log.i("Sex",sexButton.getText().toString());
-//                storeUserInfo();
-            }
-        });
     }
 
     public void createUser(){
-        mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+        progressDialog.setMessage("Registering User...");
+        progressDialog.show();
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -111,7 +125,22 @@ public class Signup_Activity extends AppCompatActivity {
 //        FirebaseUser user = mAuth.getCurrentUser();
         int genderId = sexRadio.getCheckedRadioButtonId();
         sexButton = findViewById(genderId);
-        UserInfo userInfo = new UserInfo(username.getText().toString(), phone.getText().toString(), sexButton.getText().toString());
+        sex = sexButton.getText().toString();
+        UserInfo userInfo = new UserInfo(username, phone, sex);
         databaseReference.child(user.getUid()).setValue(userInfo);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.register:
+                if (getInfo()){
+                    createUser();
+                }
+                break;
+            case R.id.signIn:
+                startActivity(new Intent(Signup_Activity.this, Signin_Activity.class));
+        }
     }
 }
