@@ -47,7 +47,7 @@
         <Button android:textStyle="bold"
             android:layout_gravity="end"
             android:textColor="#0b0924"
-            android:id="@+id/login"
+            android:id="@+id/viewDetails"
             android:background="@drawable/btn_rounded"
             android:padding="@dimen/activity_horizontal_margin2"
             android:layout_width="match_parent"

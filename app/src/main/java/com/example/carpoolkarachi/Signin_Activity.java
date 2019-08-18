@@ -36,7 +36,7 @@ public class Signin_Activity extends AppCompatActivity implements View.OnClickLi
         TextView signup = (TextView) findViewById(R.id.signuptext);
         signup.setOnClickListener(this);
 
-        Button login = findViewById(R.id.login);
+        Button login = findViewById(R.id.viewDetails);
         login.setOnClickListener(this);
 
     }
@@ -56,7 +56,7 @@ public class Signin_Activity extends AppCompatActivity implements View.OnClickLi
             case R.id.signuptext:
                 startActivity(new Intent(Signin_Activity.this, Signup_Activity.class));
                 break;
-            case R.id.login:
+            case R.id.viewDetails:
                 loginUser();
                 break;
 
@@ -91,6 +91,9 @@ public class Signin_Activity extends AppCompatActivity implements View.OnClickLi
 //                            updateUI(user);
 
                                 // User Signed in from here!
+                                Intent i = new Intent(Signin_Activity.this,MainActivity.class);
+                                startActivity(i);
+                                finish();
 
 
                             } else {
