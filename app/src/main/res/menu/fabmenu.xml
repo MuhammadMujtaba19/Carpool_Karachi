@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/addRideItem"
+        android:icon="@drawable/ic_car"
+        android:title="Add a Ride" />
+    <item
+        android:id="@+id/addRequestItem"
+        android:icon="@drawable/ic_chat"
+        android:title="Add a Request"/>
+
+</menu>

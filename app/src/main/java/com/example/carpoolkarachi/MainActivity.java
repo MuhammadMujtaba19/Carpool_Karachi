@@ -4,15 +4,20 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.internal.NavigationMenu;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineCallback;
 import com.mapbox.android.core.permissions.PermissionsListener;
@@ -31,6 +36,9 @@ import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 
 import java.util.List;
 
+import io.github.yavski.fabspeeddial.FabSpeedDial;
+import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter;
+
 public class MainActivity extends AppCompatActivity {
     private MapView mapView;
     private MapboxMap map;
@@ -42,28 +50,45 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView topAdapter;
     homeAdapter adapter;
-    FloatingActionButton fab;
+    FabSpeedDial fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.access_token));
         setContentView(R.layout.activity_main);
-        fab = (FloatingActionButton)findViewById(R.id.floatingActionButton);
+        fab = findViewById(R.id.floatingActionButton);
         topAdapter=(RecyclerView)findViewById(R.id.myRecycler);
         topAdapter.setHasFixedSize(true);
         topAdapter.setLayoutManager(new LinearLayoutManager(this));
         topAdapter.setNestedScrollingEnabled(false);
         adapter = new homeAdapter(this);
         topAdapter.setAdapter(adapter);
-
-
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab.setMenuListener(new FabSpeedDial.MenuListener() {
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,addRide.class);
-                startActivity(i);
+            public boolean onPrepareMenu(NavigationMenu navigationMenu) {
+                return true;
             }
-        });
-    }
 
+            @Override
+            public boolean onMenuItemSelected(MenuItem menuItem) {
+                Intent i = new Intent(MainActivity.this,MapActivity.class);
+
+                if( menuItem.getItemId()==R.id.addRideItem){
+                    i.putExtra("isRide",true);
+                }else if (menuItem.getItemId()==R.id.addRequestItem){
+                    i.putExtra("isRide",false);
+                }
+                startActivity(i);
+                return true;
+            }
+
+            @Override
+            public void onMenuClosed() {
+
+            }
+
+
+    });
+
+}
 }

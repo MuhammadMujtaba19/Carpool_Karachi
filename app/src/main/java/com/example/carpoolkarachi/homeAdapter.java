@@ -35,6 +35,12 @@ public class homeAdapter extends RecyclerView.Adapter<homeAdapter.viewholder> {
 
     @Override
     public void onBindViewHolder(final viewholder holder, int position) {
+        if(position==1){
+            holder.driverImage.setImageResource(R.drawable.ic_boy);
+        }
+        if(position==4){
+            holder.driverImage.setImageResource(R.drawable.ic_woman);
+        }
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -39,6 +39,11 @@ public class Signin_Activity extends AppCompatActivity implements View.OnClickLi
         Button login = findViewById(R.id.viewDetails);
         login.setOnClickListener(this);
 
+        if(mAuth.getUid()!=null){
+            Intent i = new Intent (Signin_Activity.this, MainActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 
     @Override
@@ -91,7 +96,7 @@ public class Signin_Activity extends AppCompatActivity implements View.OnClickLi
 //                            updateUI(user);
 
                                 // User Signed in from here!
-                                Intent i = new Intent(Signin_Activity.this,MainActivity.class);
+                                Intent i = new Intent(Signin_Activity.this,PermissionActivity.class);
                                 startActivity(i);
                                 finish();
 

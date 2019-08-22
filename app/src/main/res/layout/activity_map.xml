@@ -5,35 +5,109 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MapActivity">
-    <!--<fragment-->
-    <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/map"/>-->
-        <!--android:name="com.google.android.gms.maps.SupportMapFragment"/>-->
 
-    <com.mancj.materialsearchbar.MaterialSearchBar
-        style="@style/MaterialSearchBarLight"
-        app:mt_speechMode="false"
-        app:mt_hint="Search a Place "
-        app:mt_maxSuggestionsCount="10"
+    <fragment
+    android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+    <fragment
+        android:id="@+id/place_autocomplete1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:mt_placeholder="Search a Place "
-        app:mt_navIconEnabled="true"
-        android:elevation="5dp"
-        android:id="@+id/searchBar" />
-    <ImageView
-        android:layout_width="wrap_content"
+        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/white_border"
+        android:id="@+id/sourceLayout"
+        android:elevation="1dp">
+        <ImageView
+            android:id="@+id/ic_home"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:imeOptions="actionSearch"
+            android:src="@drawable/ic_home" />
+
+        <TextView
+            android:id="@+id/sourceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/ic_home"
+            android:hint="Enter your Source"
+            android:translationY="@dimen/activity_horizontal_margin"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <fragment
+        android:layout_below="@+id/place_autocomplete1"
+        android:id="@+id/place_autocomplete2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/ic_placeholder"/>
+        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+        />
+
+
+    <RelativeLayout
+        android:layout_below="@+id/place_autocomplete1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/white_border"
+        android:id="@+id/destLayout"
+        android:elevation="1dp">
+        <ImageView
+            android:id="@+id/ic_work"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:imeOptions="actionSearch"
+            android:src="@drawable/ic_portfolio" />
+
+        <TextView
+            android:id="@+id/destTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/ic_work"
+            android:hint="Enter your Source"
+            android:translationY="@dimen/activity_horizontal_margin"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+
+    <!--<ImageView-->
+        <!--android:translationY="-18dp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:src="@drawable/ic_placeholder"/>-->
     <Button
+        android:id="@+id/btnConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="15dp"
         android:background="@color/colorPrimary"
         android:textColor="#FFF"
-        android:text="Confirm Source"/>
+        android:text="@string/confirm_route"/>
 </RelativeLayout>
