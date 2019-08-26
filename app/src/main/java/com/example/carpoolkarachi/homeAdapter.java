@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.List;
 
 public class homeAdapter extends RecyclerView.Adapter<homeAdapter.viewholder> {
@@ -38,21 +40,33 @@ public class homeAdapter extends RecyclerView.Adapter<homeAdapter.viewholder> {
         if(position==1){
             holder.driverImage.setImageResource(R.drawable.ic_boy);
         }
-        if(position==4){
+        if(position==3){
             holder.driverImage.setImageResource(R.drawable.ic_woman);
         }
-        holder.btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
+        if(position==2){
+            holder.driverImage.setImageResource(R.drawable.ic_girl);
+        }
+        holder.btn.setOnClickListener(v->{
                 Intent i = new Intent(context,RideDetails.class);
+
+                //Testing purpose k liye hardcoded Lat Lng Tariq road se North namzimabad xD
+                LatLng sourceLatLng = new LatLng(24.87186,67.059895);
+                LatLng destLatLng = new LatLng(24.9372146,67.042281);
+
+
+                i.putExtra("sourceLatLng",sourceLatLng);
+                i.putExtra("destLatLng",destLatLng);
+
                 context.startActivity(i);
+
             }
-        });
+        );
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 6;
     }
 
     public class viewholder extends RecyclerView.ViewHolder{

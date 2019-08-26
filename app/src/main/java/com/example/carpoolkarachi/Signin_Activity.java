@@ -40,7 +40,7 @@ public class Signin_Activity extends AppCompatActivity implements View.OnClickLi
         login.setOnClickListener(this);
 
         if(mAuth.getUid()!=null){
-            Intent i = new Intent (Signin_Activity.this, MainActivity.class);
+            Intent i = new Intent (Signin_Activity.this, PermissionActivity.class);
             startActivity(i);
             finish();
         }

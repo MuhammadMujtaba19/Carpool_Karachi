@@ -126,7 +126,7 @@ public class Signup_Activity extends AppCompatActivity implements  View.OnClickL
         sexButton = findViewById(genderId);
         sex = sexButton.getText().toString();
         UserInfo userInfo = new UserInfo(username, phone, sex);
-        databaseReference.child(user.getUid()).setValue(userInfo);
+        databaseReference.child("Users").child(user.getUid()).setValue(userInfo);
     }
 
     @Override

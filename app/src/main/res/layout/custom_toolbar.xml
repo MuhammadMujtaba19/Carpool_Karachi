@@ -26,6 +26,7 @@
             android:textSize="20dp"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
+            android:id="@+id/headingTextView"
             android:padding="10dp"
             android:textAlignment="center"/>
 

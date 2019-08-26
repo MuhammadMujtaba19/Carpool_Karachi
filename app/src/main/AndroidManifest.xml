@@ -14,23 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MapActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
-
-        </activity>
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDZgQfvsvXJb_LXCqWXtHKJD9qYrOE09qA"/>
         <activity
-            android:name=".Signup_Activity"
-            android:theme="@style/Theme.Design.Light.NoActionBar" />
-        <activity
-            android:name=".Signin_Activity"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,17 +25,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".addRide"
+            android:name=".MapActivity"
             android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDZgQfvsvXJb_LXCqWXtHKJD9qYrOE09qA" />
+
+        <activity
+            android:name=".Signup_Activity"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+
+        <activity
+            android:name=".Signin_Activity"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+        </activity>
+
+        <activity android:name=".addRide"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+
         <activity android:name=".RideDetails" />
 
-        <activity android:name=".MainActivity">
-
-        </activity>
-
-        <activity android:name=".PermissionActivity">
-
-        </activity>
+        <activity android:name=".PermissionActivity"></activity>
     </application>
 
 </manifest>

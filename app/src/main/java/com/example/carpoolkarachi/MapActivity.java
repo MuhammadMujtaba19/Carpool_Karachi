@@ -150,6 +150,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             Intent i = new  Intent(this,addRide.class);
             i.putExtra("SourceLocation",sourceTextView.getText().toString());
             i.putExtra("DestinationLocation",destTextView.getText().toString());
+            i.putExtra("SourcePosition",sourceMarker.getPosition());
+            i.putExtra("DestPosition",destinationMarker.getPosition());
+
             startActivity(i);
 
         });

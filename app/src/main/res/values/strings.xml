@@ -3,4 +3,12 @@
     <string name="google_api">AIzaSyD8dRpnz6dp37FJ6FVZEbF4iTS9s_-_5sg</string>
     <string name="access_token">pk.eyJ1IjoibXVoYW1tYWRtdWp0YWJhMTkiLCJhIjoiY2p5eGFzZmIwMDU5aDNibW1nYTM4cmlwbSJ9.4secPb1IPqx2PWdxkd02Cw</string>
     <string name="confirm_route">Confirm Route</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

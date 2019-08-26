@@ -6,7 +6,8 @@
     android:layout_marginTop="15dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:elevation="10dp">
+    android:elevation="10dp"
+    app:cardCornerRadius="10dp">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -49,8 +50,10 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    >
                     <ImageView
+                        android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_loc2"/>
@@ -59,7 +62,7 @@
                         android:id="@+id/driverRoute"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tariq Road Karachi Pakistan" />
+                        android:text="Tariq Road Karachi " />
 
                 </LinearLayout>
 
@@ -70,6 +73,7 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp">
                     <ImageView
+                        android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_loc"/>
@@ -78,7 +82,7 @@
                         android:id="@+id/dest"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tariq Road Karachi Pakistan" />
+                        android:text="LightHouse Saddar Karachi" />
 
                 </LinearLayout>
 

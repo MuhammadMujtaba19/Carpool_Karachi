@@ -15,11 +15,24 @@
         android:gravity="center"
         >
 
-        <ImageView
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:src="@drawable/logo" />-->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/logo" />
+            android:textSize="60sp"
+            android:textColor="@color/white"
+            android:text="CARPOOL"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="60sp"
+            android:textColor="@color/white"
+            android:text="Karachi."/>
         <EditText
             android:id="@+id/useremail"
             android:textColor="#fff"
@@ -45,10 +58,10 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"/>
         <Button android:textStyle="bold"
+            android:background="@drawable/btn_rounded"
             android:layout_gravity="end"
             android:textColor="#0b0924"
             android:id="@+id/viewDetails"
-            android:background="@drawable/btn_rounded"
             android:padding="@dimen/activity_horizontal_margin2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
